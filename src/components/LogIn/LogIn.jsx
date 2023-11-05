@@ -3,6 +3,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Main/AuthProvider";
 import Swal from "sweetalert2";
 import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const LogIn = () => {

@@ -2,6 +2,9 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Main/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SignUp = () => {
@@ -19,15 +22,28 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        if (password.length < 6) {
+            toastMsg('Your Password should be at least 6 characters or more');
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            toastMsg('Your password should have at least one uppercase letter');
+            return;
+        }
+        else if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\|]/.test(password)) {
+            toastMsg("Your password should have at least one special character");
+            return;
+        }
+
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
-                // Swal.fire({
-                //     title: 'Success!',
-                //     text: 'Account Registered',
-                //     icon: 'success',
-                //     confirmButtonText: 'Cool'
-                // })
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Account Registered',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
                 updateProfile(result.user, {
                     displayName: name,
                     photoURL: image
@@ -36,6 +52,10 @@ const SignUp = () => {
             .catch(error => {
                 console.error(error)
             })
+    }
+
+    const toastMsg = (input) => {
+        toast(input);
     }
 
     return (
@@ -78,10 +98,10 @@ const SignUp = () => {
                     </form>
                 </div>
             </div>
-            {/* <ToastContainer
+            <ToastContainer
                 position="top-center"
                 autoClose={5000}
-            /> */}
+            />
         </div>
     );
 };

@@ -1,8 +1,27 @@
 import { Link, NavLink } from "react-router-dom";
 import { IoFastFoodSharp } from "react-icons/io5";
+import { useContext } from "react";
+import { AuthContext } from "../Main/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const NavBar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                console.log('logged out');
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Successfully Logged Out',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
+            })
+            .catch(error => console.log(error))
+    }
 
     const navLinks = <>
         <li className="text-sky-500 font-bold"><NavLink to="/">Home</NavLink></li>
@@ -35,17 +54,16 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {/* {user ?
+                {user ?
                     <div className="md:flex md:gap-2 items-center">
                         <div>
                             <img className="rounded-full mb-2 w-8 h-8 md:w-12 md:h-12 mx-auto" src={user.photoURL} alt="" />
-                            <p className="text-green-600 font-bold mb-2">{user.displayName}</p>
+                            <p className="text-sky-700 font-bold mb-2 text-center">{user.displayName}</p>
                         </div>
-                        <a onClick={handleLogout} className="btn text-lime-700 font-bold">Sign out</a>
+                        <a onClick={handleLogout} className="btn text-sky-700 font-bold">Sign out</a>
                     </div> :
-                    <button className="btn text-lime-700 font-bold"><NavLink to="/login">Login</NavLink></button>
-                } */}
-                <button className="btn text-sky-700 font-bold"><NavLink to="/login">Login</NavLink></button>
+                    <button className="btn text-sky-700 font-bold"><NavLink to="/login">Login</NavLink></button>
+                }
             </div>
         </div>
     );
