@@ -13,11 +13,12 @@ import ManageMyFoods from './components/ManageMyFoods/ManageMyFoods';
 import MyFoodRequest from './components/MyFoodRequest/MyFoodRequest';
 import LogIn from './components/LogIn/LogIn';
 import SignUp from './components/SignUp/SignUp';
+import AuthProvider from './components/Main/AuthProvider';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
+    element: <Root />,
     children: [
       {
         path: '/',
@@ -53,6 +54,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
