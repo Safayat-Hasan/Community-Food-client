@@ -60,7 +60,7 @@ const SignUp = () => {
 
     return (
         <div className="mt-16 mb-28">
-            <div className="hero-content flex-col lg:flex-row-reverse bg-cyan-100 md:gap-10">
+            <div className="hero-content flex-col lg:flex-row-reverse bg-cyan-100 md:gap-10 mx-auto">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Register now!</h1>
                     <p className="py-6">Register now and become a part of the community who serves for greater cause.</p>
