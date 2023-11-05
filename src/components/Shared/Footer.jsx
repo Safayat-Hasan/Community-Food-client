@@ -6,7 +6,7 @@ const Footer = () => {
             <footer className="footer p-10 bg-cyan-100 text-base-content">
                 <aside>
                     <div className="flex items-center gap-3">
-                        <IoFastFoodSharp className="h-8 w-8 md:h-10 md:w-10"></IoFastFoodSharp>
+                        <IoFastFoodSharp className="h-12 w-12 md:h-16 md:w-16"></IoFastFoodSharp>
                         <p className="text-2xl text-sky-800 font-extrabold">FoodHarmony <br /><span className="text-black font-bold">Building community since 2008</span></p>
                     </div>
                 </aside>
