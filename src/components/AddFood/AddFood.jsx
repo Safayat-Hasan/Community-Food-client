@@ -8,7 +8,7 @@ const AddFood = () => {
 
     const { user } = useContext(AuthContext);
 
-    const handleAddProduct = event => {
+    const handleAddFood = event => {
         event.preventDefault();
         const form = event.target;
         const image = form.image.value;
@@ -49,7 +49,7 @@ const AddFood = () => {
     return (
         <div className="bg-cyan-100 mt-16 mb-28 md:p-24 w-full">
             <h2 className="text-3xl font-extrabold text-center mb-6">Add a Food</h2>
-            <form onSubmit={handleAddProduct}>
+            <form onSubmit={handleAddFood}>
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-8 gap-4">
                     <div className="form-control w-full">
                         <label className="label">

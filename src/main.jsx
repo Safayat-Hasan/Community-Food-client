@@ -15,6 +15,7 @@ import LogIn from './components/LogIn/LogIn';
 import SignUp from './components/SignUp/SignUp';
 import AuthProvider from './components/Main/AuthProvider';
 import ErrorPage from './components/Main/ErrorPage';
+import FoodDetails from './components/AvailableFoods/FoodDetails';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
       {
         path: '/signUp',
         element: <SignUp></SignUp>,
+      },
+      {
+        path: '/foods/:id',
+        element: <FoodDetails/>,
+        loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`)
       },
     ]
   },

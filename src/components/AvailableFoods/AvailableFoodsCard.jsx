@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 
 
 const AvailableFoodsCard = ({ foods }) => {
-    const { food_name, image, quantity, pickup_location, expired_date, additional_notes, donator_image, donator_name } = foods;
+    const { _id, food_name, image, quantity, pickup_location, expired_date, additional_notes, donator_image, donator_name } = foods;
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure><img className="h-96 w-96" src={image} /></figure>
@@ -16,7 +17,7 @@ const AvailableFoodsCard = ({ foods }) => {
                     <img className="h-28 w-28 mt-2 mx-auto" src={donator_image} alt="" />
                 </div>
                 <div className="card-actions justify-end mt-2">
-                    <button className="btn btn-primary bg-sky-500 text-white border-0">View Details</button>
+                    <Link to={`/foods/${_id}`}><button className="btn btn-primary bg-sky-500 text-white border-0">View Details</button></Link>
                 </div>
             </div>
         </div>
