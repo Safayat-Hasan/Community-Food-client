@@ -12,14 +12,17 @@ const AddFood = () => {
         event.preventDefault();
         const form = event.target;
         const image = form.image.value;
-        const name = form.name.value;
+        const food_name = form.food_name.value;
         const quantity = form.quantity.value;
-        const pickup = form.pickup.value;
-        const expired = form.expired.value;
-        const additional = form.additional.value;
+        const pickup_location = form.pickup_location.value;
+        const expired_date = form.expired_date.value;
+        const additional_notes = form.additional_notes.value;
         const status = form.status.value;
+        const donator_image = form.donator_image.value;
+        const donator_name = form.donator_name.value;
+        const donator_email = form.donator_email.value;
 
-        const newFood = { image, name, quantity, pickup, expired, additional, status };
+        const newFood = { image, food_name, quantity, pickup_location, expired_date, additional_notes, status, donator_image, donator_name, donator_email };
         console.log(newFood);
 
         fetch("http://localhost:5000/foods", {
@@ -61,7 +64,7 @@ const AddFood = () => {
                             <span className="label-text font-bold">Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" />
+                            <input type="text" name="food_name" placeholder="Name" className="input input-bordered w-full" />
                         </label>
                     </div>
 
@@ -78,7 +81,7 @@ const AddFood = () => {
                             <span className="label-text font-bold">Pickup Location</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="pickup" placeholder="Pickup Location" className="input input-bordered w-full" />
+                            <input type="text" name="pickup_location" placeholder="Pickup Location" className="input input-bordered w-full" />
                         </label>
                     </div>
 
@@ -87,7 +90,7 @@ const AddFood = () => {
                             <span className="label-text font-bold">Expired Date</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="expired" placeholder="Expired Date" className="input input-bordered w-full" />
+                            <input type="text" name="expired_date" placeholder="Expired Date" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control w-full">
@@ -95,7 +98,7 @@ const AddFood = () => {
                             <span className="label-text font-bold">Additional Notes</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="additional" placeholder="Additional Notes" className="input input-bordered w-full" />
+                            <input type="text" name="additional_notes" placeholder="Additional Notes" className="input input-bordered w-full" />
                         </label>
                     </div>
 
@@ -108,21 +111,45 @@ const AddFood = () => {
                         </label>
                     </div>
                     <div className="form-control w-full">
-                        <label className="label mx-auto">
-                            <span className="label-text font-bold text-xl">Donated By</span>
+                        <label className="label">
+                            <span className="label-text font-bold">Donator Image</span>
                         </label>
-                        {user ?
-                            <div>
-                                <img className="rounded-xl mb-2 w-8 h-8 md:w-12 md:h-12 mx-auto" src={user.photoURL} alt="" />
-                                <p className="text-sky-700 font-bold mb-2 text-center">{user.displayName}</p>
-                                <p className="text-sky-700 font-bold mb-2 text-center">{user.email}</p>
-                            </div> :
-                            <div>
-                            </div>
-                        }
+                        <label className="input-group">
+                            <input type="text" name="donator_image" defaultValue={user ? user.photoURL : null} placeholder="Donator Image" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text font-bold">Donator Name</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="donator_name" defaultValue={user ? user.displayName : null} placeholder="Donator Name" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text font-bold">Donator Email</span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="donator_email" defaultValue={user ? user.email : null} placeholder="Donator Email" className="input input-bordered w-full" />
+                        </label>
                     </div>
                 </div>
-                <input type="submit" value="Add Food" className="btn btn-block bg-sky-500 font-bold" />
+                <div className="form-control w-full">
+                    <label className="label mx-auto">
+                        <span className="label-text font-bold text-xl">Donated By</span>
+                    </label>
+                    {user ?
+                        <div>
+                            <img className="rounded-xl mb-2 w-8 h-8 md:w-12 md:h-12 mx-auto" src={user.photoURL} alt="" />
+                            <p className="text-sky-700 font-bold mb-2 text-center">{user.displayName}</p>
+                            <p className="text-sky-700 font-bold mb-2 text-center">{user.email}</p>
+                        </div> :
+                        <div>
+                        </div>
+                    }
+                </div>
+                <input type="submit" value="Add Food" className="btn btn-block bg-sky-500 font-bold mt-4" />
             </form>
         </div>
     );

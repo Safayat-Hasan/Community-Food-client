@@ -1,0 +1,92 @@
+[
+    {
+        "food_name": "Spaghetti Bolognese",
+        "image": "https://i.ibb.co/1rwF06g/spaghetti-bolognese-36.jpg",
+        "quantity": 3,
+        "pickup_location": "Downtown Food Bank",
+        "expired_date": "2023-12-15",
+        "additional_notes": "Contains meat sauce",
+        "status": "available"
+    },
+    {
+        "food_name": "Vegetable Stir-fry",
+        "image": "https://i.ibb.co/CnB1XQv/Vegetable-Stir-Fry-2.jpg",
+        "quantity": 5,
+        "pickup_location": "Community Kitchen",
+        "expired_date": "2023-12-10",
+        "additional_notes": "Vegan-friendly",
+        "status": "available"
+    },
+    {
+        "food_name": "Chicken Caesar Salad",
+        "image": "https://i.ibb.co/QM717M0/chicken-caesar-salad-28-1200.jpg",
+        "quantity": 2,
+        "pickup_location": "Local Church",
+        "expired_date": "2023-12-12",
+        "additional_notes": "Contains chicken and dressing",
+        "status": "available"
+    },
+    {
+        "food_name": "Pizza Margherita",
+        "image": "https://i.ibb.co/N33PfG3/mozzarella-pizza-margherita-FT-RECIPE0621-11fa41ceb1a5465d9036a23da87dd3d4.jpg",
+        "quantity": 4,
+        "pickup_location": "Neighborhood Center",
+        "expired_date": "2023-12-14",
+        "additional_notes": "Freshly baked pizza",
+        "status": "available"
+    },
+    {
+        "food_name": "Fruit Salad",
+        "image": "https://i.ibb.co/R4rk4bw/Fresh-Fruit-Salad-06-480x270.jpg",
+        "quantity": 6,
+        "pickup_location": "Senior Center",
+        "expired_date": "2023-12-11",
+        "additional_notes": "Assorted fruits",
+        "status": "available"
+    },
+    {
+        "food_name": "Baked Salmon",
+        "image": "https://i.ibb.co/9W8Z5kd/baked-salmon-00289-16x9.jpg",
+        "quantity": 1,
+        "pickup_location": "Food Pantry",
+        "expired_date": "2023-12-13",
+        "additional_notes": "Freshly baked salmon fillet",
+        "status": "available"
+    },
+    {
+        "food_name": "Cheese and Crackers",
+        "image": "https://i.ibb.co/3h1qcWZ/21mag-eat-site-super-Jumbo-v4.jpg",
+        "quantity": 7,
+        "pickup_location": "Community Center",
+        "expired_date": "2023-12-16",
+        "additional_notes": "Assorted cheeses and crackers",
+        "status": "available"
+    },
+    {
+        "food_name": "Chocolate Cake",
+        "image": "https://i.ibb.co/74h63n2/IMG-4087-feature-2.jpg",
+        "quantity": 2,
+        "pickup_location": "Local Shelter",
+        "expired_date": "2023-12-17",
+        "additional_notes": "Decadent chocolate cake",
+        "status": "available"
+    },
+    {
+        "food_name": "Sushi Platter",
+        "image": "https://i.ibb.co/rZMLFkQ/Special-rolls-party-tray.jpg",
+        "quantity": 3,
+        "pickup_location": "Youth Center",
+        "expired_date": "2023-12-18",
+        "additional_notes": "Variety of sushi rolls",
+        "status": "available"
+    },
+    {
+        "food_name": "Mushroom Soup",
+        "image": "https://i.ibb.co/mb6p4GF/best-vegan-mushroom-soup-4.jpg",
+        "quantity": 4,
+        "pickup_location": "Soup Kitchen",
+        "expired_date": "2023-12-09",
+        "additional_notes": "Homemade creamy mushroom soup",
+        "status": "available"
+    }
+]
