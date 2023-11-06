@@ -84,7 +84,7 @@ const LogIn = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn bg-sky-500 text-white">Login</button>
+                                <button className="btn bg-sky-500 text-white font-bold">Login</button>
                             </div>
                             {/* {logError &&
                                 <p className="text-red-700">{logError}</p>

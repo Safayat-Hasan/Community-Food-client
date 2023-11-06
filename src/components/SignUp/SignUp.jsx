@@ -92,7 +92,7 @@ const SignUp = () => {
                             <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn bg-sky-500 text-white">Register</button>
+                            <button className="btn bg-sky-500 text-white font-bold">Register</button>
                         </div>
                         <p>Already have an account? <NavLink className="text-sky-500 font-bold" to='/login'> Login</NavLink></p>
                     </form>
