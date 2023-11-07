@@ -1,6 +1,6 @@
 
 
-const FoodsRow = ({ food }) => {
+const FoodsRow = ({ food, handleDelete }) => {
 
     const { _id, food_name, image, quantity, expired_date, pickup_location } = food;
 
@@ -9,7 +9,7 @@ const FoodsRow = ({ food }) => {
             <th>
                 <div className="flex flex-col">
                     <button className="btn btn-primary mb-2 bg-sky-500 text-white">Update</button>
-                    <button className="btn btn-primary mb-2 bg-sky-500 text-white">Delete</button>
+                    <button onClick={() => handleDelete(_id)} className="btn btn-primary mb-2 bg-sky-500 text-white">Delete</button>
                     <button className="btn btn-primary bg-sky-500 text-white">Manage</button>
                 </div>
             </th>

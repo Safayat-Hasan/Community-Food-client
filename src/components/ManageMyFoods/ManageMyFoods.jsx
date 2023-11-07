@@ -11,7 +11,7 @@ const ManageMyFoods = () => {
 
     const [foods, setFoods] = useState([]);
 
-    const url = `http://localhost:5000/foods/manage/${user&&user.email}`;
+    const url = `http://localhost:5000/foods/manage/${user && user.email}`;
 
     useEffect(() => {
         fetch(url)
@@ -24,26 +24,35 @@ const ManageMyFoods = () => {
     }, [url]);
 
     const handleDelete = id => {
-        const proceed = confirm('Are You sure you want to delete');
-        if (proceed) {
-            fetch(`http://localhost:5000/foods/${id}`, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    if (data.deletedCount > 0) {
-                        Swal.fire({
-                            title: 'Success!',
-                            text: 'Food Requested',
-                            icon: 'success',
-                            confirmButtonText: 'Cool'
-                        })
-                        const remaining = foods.filter(food => food._id !== id);
-                        setFoods(remaining);
-                    }
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/foods/${id}`, {
+                    method: 'DELETE'
                 })
-        }
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'The Food has been deleted from the list',
+                                'success'
+                            )
+                            const remaining = foods.filter(food => food._id !== id);
+                            setFoods(remaining);
+                        }
+                    })
+            }
+        })
     }
 
     return (
