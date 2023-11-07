@@ -1,18 +1,14 @@
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Main/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 
 const FoodDetails = () => {
 
     const currentDate = new Date().toLocaleDateString();
+    const [currentMsg, setCurrentMsg] = useState('');
 
-    const toastMsg = (input) => {
-        toast(input);
-    }
 
     const handleRequestFood = event => {
         event.preventDefault();
@@ -33,25 +29,26 @@ const FoodDetails = () => {
         console.log(requestedFood);
 
 
-        // fetch("http://localhost:5000/requestedFoods", {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(requestedFood)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         if (data.insertedId) {
-        //             Swal.fire({
-        //                 title: 'Success!',
-        //                 text: 'Food Requested',
-        //                 icon: 'success',
-        //                 confirmButtonText: 'Cool'
-        //             })
-        //         }
-        //     })
+        fetch("http://localhost:5000/requestedFoods", {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(requestedFood)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    setCurrentMsg('The Food has been requested successfully');
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Food Requested',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
     }
 
 
@@ -152,16 +149,13 @@ const FoodDetails = () => {
                                 <input type="text" name="donation_money" className="input input-bordered" />
                             </div>
                             {/* <input className="btn bg-sky-500 text-white mt-4" type="submit" value="Request" /> */}
-                            <button onClick={()=>toastMsg('success')} className="btn bg-sky-500 text-white mt-4 ml-4">Request</button>
-                            <p className="py-4">Press ESC key to close</p>
+                            <button className="btn bg-sky-500 text-white mt-4 ml-4">Request</button>
+                            <p className="pt-4">Press ESC key to close</p>
+                            <p className="text-green-700 font-bold text-xl pt-2">{currentMsg}</p>
                         </form>
                     </div>
                 </dialog>
             </div>
-            <ToastContainer
-                position="top-center"
-                autoClose={5000}
-            />
         </div>
     );
 };
