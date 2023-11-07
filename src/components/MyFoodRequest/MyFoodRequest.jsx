@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Main/AuthProvider";
 import RequestedFoodsRow from "./RequestedFoodsRow";
+import Swal from "sweetalert2";
 
 
 const MyFoodRequest = () => {
@@ -20,6 +21,60 @@ const MyFoodRequest = () => {
         //     .then(res => setBookings(res.data))
 
     }, [url]);
+
+    const handleDelete = id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/requestedFoods/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'The request has been cancelled from the list',
+                                'success'
+                            )
+                            const remaining = foods.filter(food => food._id !== id);
+                            setFoods(remaining);
+                        }
+                    })
+            }
+        })
+    }
+
+    // const handleFoodConfirm = id => {
+    //     fetch(`https://car-doctor-server-main-ten.vercel.app/requestedFoods/${id}`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify({ status: 'delivered' })
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             if (data.modifiedCount > 0) {
+    //                 // update state
+    //                 const remaining = foods.filter(food => food._id !== id);
+    //                 const updated = foods.find(food => food._id === id);
+    //                 updated.status = 'delivered'
+    //                 const newFoods = [updated, ...remaining];
+    //                 setFoods(newFoods);
+    //             }
+    //         })
+    // }
 
     return (
         <div>
@@ -46,7 +101,7 @@ const MyFoodRequest = () => {
                             foods.map(food => <RequestedFoodsRow
                                 key={food._id}
                                 food={food}
-                                // handleDelete={handleDelete}
+                                handleDelete={handleDelete}
                             // handleBookingConfirm={handleBookingConfirm}
                             ></RequestedFoodsRow>)
                         }
