@@ -27,8 +27,12 @@ const NavBar = () => {
         <li className="text-sky-500 font-bold"><NavLink to="/">Home</NavLink></li>
         <li className="text-sky-500 font-bold"><NavLink to="/availableFoods">Available Foods</NavLink></li>
         <li className="text-sky-500 font-bold"><NavLink to="/addFood">Add Food</NavLink></li>
-        <li className="text-sky-500 font-bold"><NavLink to={`/manageMyFoods`}>Manage My Foods</NavLink></li>
-        <li className="text-sky-500 font-bold"><NavLink to={`/myFoodRequest`}>My Food Request</NavLink></li>
+        {user?
+        <li className="text-sky-500 font-bold"><NavLink to={`/manageMyFoods`}>Manage My Foods</NavLink></li>:
+        null}
+        {user?
+        <li className="text-sky-500 font-bold"><NavLink to={`/myFoodRequest`}>My Food Request</NavLink></li>:
+        null}
         <li className="text-sky-500 font-bold"><NavLink to="/signUp">Sign Up</NavLink></li>
     </>
 
