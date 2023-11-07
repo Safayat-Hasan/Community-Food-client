@@ -1,19 +1,21 @@
+import { Link } from "react-router-dom";
 
 
 const FoodsRow = ({ food, handleDelete }) => {
 
     const { _id, food_name, image, quantity, expired_date, pickup_location } = food;
 
+
     return (
         <tr>
             <th>
                 <div className="flex flex-col">
-                    <button className="btn btn-primary mb-2 bg-sky-500 text-white">Update</button>
-                    <button onClick={() => handleDelete(_id)} className="btn btn-primary mb-2 bg-sky-500 text-white">Delete</button>
-                    <button className="btn btn-primary bg-sky-500 text-white">Manage</button>
+                    <Link to={`/updateFood/${_id}`}><button className="btn btn-primary mb-2 bg-sky-500 text-white w-40">Update</button></Link>
+                    <button onClick={() => handleDelete(_id)} className="btn btn-primary mb-2 bg-sky-500 text-white w-40">Delete</button>
+                    <button className="btn btn-primary bg-sky-500 text-white w-40">Manage</button>
                 </div>
             </th>
-            <td  className="text-lg">
+            <td className="text-lg">
                 {food_name}
             </td>
             <td>
