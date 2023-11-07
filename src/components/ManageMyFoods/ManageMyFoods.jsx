@@ -57,7 +57,7 @@ const ManageMyFoods = () => {
 
     return (
         <div>
-            <h2 className="text-5xl text-center mb-6"><span className="text-blue-700">Your added foods:</span> <span className="font-bold">{foods.length}</span></h2>
+            <h2 className="text-5xl text-center mb-6"><span className="text-blue-700">Your Added Foods:</span> <span className="font-bold">{foods.length}</span></h2>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}

@@ -24,8 +24,9 @@ const FoodDetails = () => {
         const donation_money = form.donation_money.value;
         const donator_name = form.donator_name.value;
         const donator_email = form.donator_email.value;
+        const status = form.status.value;
 
-        const requestedFood = { image, food_name, food_id, pickup_location, expired_date, additional_notes, user_email, request_date, donator_name, donator_email, donation_money };
+        const requestedFood = { image, food_name, food_id, pickup_location, expired_date, additional_notes, user_email, request_date, donator_name, donator_email, donation_money, status };
         console.log(requestedFood);
 
 
@@ -55,7 +56,7 @@ const FoodDetails = () => {
     const { user } = useContext(AuthContext)
 
     const foodDetails = useLoaderData();
-    const { _id, food_name, image, quantity, donator_name, pickup_location, expired_date, donator_email } = foodDetails;
+    const { _id, food_name, image, quantity, donator_name, pickup_location, expired_date, donator_email, status } = foodDetails;
 
     return (
         <div>
@@ -147,6 +148,12 @@ const FoodDetails = () => {
                                     <span className="label-text">Donation Money</span>
                                 </label>
                                 <input type="text" name="donation_money" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Status</span>
+                                </label>
+                                <input type="text" name="status" readOnly defaultValue={status} className="input input-bordered" />
                             </div>
                             {/* <input className="btn bg-sky-500 text-white mt-4" type="submit" value="Request" /> */}
                             <button className="btn bg-sky-500 text-white mt-4 ml-4">Request</button>
