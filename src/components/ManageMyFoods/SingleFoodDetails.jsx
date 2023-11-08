@@ -41,6 +41,34 @@ const SingleFoodDetails = () => {
                     setFoods(foods);
                 }
             })
+
+        fetch(`http://localhost:5000/foods/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: 'delivered' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    // Swal.fire({
+                    //     title: 'Success!',
+                    //     text: 'Food Delivered',
+                    //     icon: 'success',
+                    //     confirmButtonText: 'Cool'
+                    // })
+                    // update state
+                    // const remaining = foods.filter(food => food._id !== id);
+                    // const updated = foods.find(food => food._id === id);
+                    // updated.status = 'delivered';
+                    // const newFoods = [updated, ...remaining];
+                    // foods[0].status = 'delivered';
+                    // console.log(foods);
+                    // setFoods(foods);
+                }
+            })
     }
 
     return (

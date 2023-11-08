@@ -78,7 +78,9 @@ const FoodDetails = () => {
                 </div>
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
                 <div className="items-center mt-10 text-center">
-                    <button className="btn text-2xl bg-sky-500 text-white" onClick={() => document.getElementById('my_modal_5').showModal()}>Request</button>
+                    {status === 'available' ?
+                        <button className="btn text-2xl bg-sky-500 text-white" onClick={() => document.getElementById('my_modal_5').showModal()}>Request</button> :
+                        null}
                 </div>
                 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
