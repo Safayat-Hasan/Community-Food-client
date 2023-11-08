@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 const FoodDetails = () => {
 
     const currentDate = new Date().toLocaleDateString();
+    const currentTime = new Date().toLocaleTimeString();
     const [currentMsg, setCurrentMsg] = useState('');
 
 
@@ -20,13 +21,15 @@ const FoodDetails = () => {
         const expired_date = form.expired_date.value;
         const additional_notes = form.additional_notes.value;
         const user_email = form.user_email.value;
-        const request_date = form.request_date.value;
+        const user_name = form.user_name.value;
+        const user_image = form.user_image.value;
+        const request_timeAndDate = form.request_timeAndDate.value;
         const donation_money = form.donation_money.value;
         const donator_name = form.donator_name.value;
         const donator_email = form.donator_email.value;
         const status = form.status.value;
 
-        const requestedFood = { image, food_name, food_id, pickup_location, expired_date, additional_notes, user_email, request_date, donator_name, donator_email, donation_money, status };
+        const requestedFood = { image, food_name, food_id, pickup_location, expired_date, additional_notes, user_email, user_name, user_image, request_timeAndDate, donator_name, donator_email, donation_money, status };
         console.log(requestedFood);
 
 
@@ -121,9 +124,21 @@ const FoodDetails = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Request date</span>
+                                    <span className="label-text">User Name</span>
                                 </label>
-                                <input type="text" name="request_date" readOnly defaultValue={currentDate} className="input input-bordered" />
+                                <input type="text" name="user_name" readOnly defaultValue={user ? user.displayName : null} className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">User Image</span>
+                                </label>
+                                <input type="text" name="user_image" readOnly defaultValue={user ? user.photoURL : null} className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Request time and date</span>
+                                </label>
+                                <input type="text" name="request_timeAndDate" readOnly defaultValue={`${currentTime},${currentDate}`} className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">

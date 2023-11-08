@@ -54,28 +54,6 @@ const MyFoodRequest = () => {
         })
     }
 
-    // const handleFoodConfirm = id => {
-    //     fetch(`https://car-doctor-server-main-ten.vercel.app/requestedFoods/${id}`, {
-    //         method: 'PATCH',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify({ status: 'delivered' })
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             if (data.modifiedCount > 0) {
-    //                 // update state
-    //                 const remaining = foods.filter(food => food._id !== id);
-    //                 const updated = foods.find(food => food._id === id);
-    //                 updated.status = 'delivered'
-    //                 const newFoods = [updated, ...remaining];
-    //                 setFoods(newFoods);
-    //             }
-    //         })
-    // }
-
     return (
         <div>
             <h2 className="text-5xl text-center mb-6"><span className="text-blue-700">Your Requested Foods:</span> <span className="font-bold">{ foods.length }</span></h2>

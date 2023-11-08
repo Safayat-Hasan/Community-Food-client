@@ -7,8 +7,10 @@ const RequestedFoodsRow = ({ food, handleDelete }) => {
     return (
         <tr>
             <th>
-                <div className="flex flex-col">
-                    <button onClick={() => handleDelete(_id)} className="btn btn-primary bg-sky-500 text-white">Cancel Request</button>
+                <div className="">
+                    {status === 'available' || status === 'Available' ?
+                        <button onClick={() => handleDelete(_id)} className="btn btn-primary bg-sky-500 text-white">Cancel Request</button> :
+                        null}
                 </div>
             </th>
             <td className="text-lg">

@@ -17,6 +17,7 @@ import AuthProvider from './components/Main/AuthProvider';
 import ErrorPage from './components/Main/ErrorPage';
 import FoodDetails from './components/AvailableFoods/FoodDetails';
 import UpdateFood from './components/ManageMyFoods/UpdateFood';
+import SingleFoodDetails from './components/ManageMyFoods/SingleFoodDetails';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,12 @@ const router = createBrowserRouter([
       {
         path: '/signUp',
         element: <SignUp></SignUp>,
+      },
+      {
+        path: '/requestedFoods/:food_id',
+        element: <SingleFoodDetails></SingleFoodDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/requestedFoods/${params.food_id}`)
+        // loader: () => fetch('http://localhost:5000/requestedFoods/')
       },
       {
         path: '/foods/:id',
