@@ -2,7 +2,7 @@ import { IoFastFoodSharp } from "react-icons/io5";
 
 const Footer = () => {
     return (
-        <div className="mt-14">
+        <div className="mt-20">
             <footer className="footer p-10 bg-cyan-100 text-base-content">
                 <aside>
                     <div className="flex items-center gap-3">

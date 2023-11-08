@@ -23,7 +23,7 @@ const FeaturedFoods = () => {
 
     return (
         <div className="mb-16">
-            <h2 className="text-5xl font-bold text-center mb-6 text-blue-700">Our Featured Foods</h2>
+            <h2 className="text-5xl font-extrabold text-center mb-6 text-blue-700">Our Featured Foods</h2>
             <div className="mt-10 mb-10 grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     foods.slice(0, 6).map(food => <FeaturedFoodsCard key={food._id} foods={food}></FeaturedFoodsCard>)
