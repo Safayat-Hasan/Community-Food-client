@@ -11,3 +11,4 @@
 - Created the backend server to load data for the frontend
 - Used the MongoDB for storing data in the database
 - Deployed the frontend to the live site with firebase
+- Used JWT
