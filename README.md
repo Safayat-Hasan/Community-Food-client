@@ -1,8 +1,13 @@
-# React + Vite
+# FoodHarmony
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# The live link is: 
 
-Currently, two official plugins are available:
+# The different features and functionalities of my website are:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Used React-router
+- Used Private route
+- Created logIn and signUp authentication
+- Used React hooks
+- Created the backend server to load data for the frontend
+- Used the MongoDB for storing data in the database
+- Deployed the frontend to the live site with firebase
