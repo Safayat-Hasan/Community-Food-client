@@ -11,7 +11,7 @@ const ManageMyFoods = () => {
 
     const [foods, setFoods] = useState([]);
 
-    const url = `http://localhost:5000/foods/manage/${user && user.email}`;
+    const url = `https://community-food-server.vercel.app/foods/manage/${user && user.email}`;
 
     useEffect(() => {
         fetch(url)
@@ -35,7 +35,7 @@ const ManageMyFoods = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/foods/${id}`, {
+                fetch(`https://community-food-server.vercel.app/foods/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

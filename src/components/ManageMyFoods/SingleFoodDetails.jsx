@@ -14,7 +14,7 @@ const SingleFoodDetails = () => {
     // console.log(foods[0].user_name);
 
     const handleFoodConfirm = id => {
-        fetch(`http://localhost:5000/requestedFoods/${id}`, {
+        fetch(`https://community-food-server.vercel.app/requestedFoods/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -42,7 +42,7 @@ const SingleFoodDetails = () => {
                 }
             })
 
-        fetch(`http://localhost:5000/foods/${id}`, {
+        fetch(`https://community-food-server.vercel.app/foods/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

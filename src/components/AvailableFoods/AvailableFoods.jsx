@@ -28,7 +28,7 @@ const AvailableFoods = () => {
         const form = event.target;
         const food_name = form.food_name.value;
 
-        const url = `http://localhost:5000/foods/search/${food_name}`;
+        const url = `https://community-food-server.vercel.app/foods/search/${food_name}`;
 
 
         fetch(url)

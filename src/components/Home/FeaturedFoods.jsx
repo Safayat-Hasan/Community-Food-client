@@ -7,7 +7,7 @@ const FeaturedFoods = () => {
 
     const [foods, setFoods] = useState([]);
 
-    const url = `http://localhost:5000/foods`;
+    const url = `https://community-food-server.vercel.app/foods`;
 
     useEffect(() => {
         fetch(url)

@@ -25,7 +25,7 @@ const AddFood = () => {
         const newFood = { image, food_name, quantity, pickup_location, expired_date, additional_notes, status, donator_image, donator_name, donator_email };
         console.log(newFood);
 
-        fetch("http://localhost:5000/foods", {
+        fetch("https://community-food-server.vercel.app/foods", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -107,7 +107,7 @@ const AddFood = () => {
                             <span className="label-text font-bold">Food Status</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="status" defaultValue='Available' placeholder="Food Status" className="input input-bordered w-full" />
+                            <input type="text" name="status" defaultValue='available' placeholder="Food Status" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control w-full">

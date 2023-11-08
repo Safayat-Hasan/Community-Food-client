@@ -33,7 +33,7 @@ const FoodDetails = () => {
         console.log(requestedFood);
 
 
-        fetch("http://localhost:5000/requestedFoods", {
+        fetch("https://community-food-server.vercel.app/requestedFoods", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

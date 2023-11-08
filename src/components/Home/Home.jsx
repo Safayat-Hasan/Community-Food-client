@@ -3,7 +3,9 @@ import ExtraSections from "./ExtraSections";
 import FeaturedFoods from "./FeaturedFoods";
 
 
+
 const Home = () => {
+
     return (
         <div>
             <Banner></Banner>
