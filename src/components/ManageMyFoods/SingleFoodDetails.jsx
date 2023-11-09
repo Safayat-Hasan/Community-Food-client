@@ -14,7 +14,7 @@ const SingleFoodDetails = () => {
     // console.log(foods[0].user_name);
 
     const handleFoodConfirm = id => {
-        fetch(`https://community-food-server.vercel.app/requestedFoods/${id}`, {
+        fetch(`https://community-food-server.vercel.app/requestedFoods/${id}`, { credentials: "include" }, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

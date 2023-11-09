@@ -13,7 +13,7 @@ const MyFoodRequest = () => {
     const url = `https://community-food-server.vercel.app/requestedFoods/manage/${user && user.email}`;
 
     useEffect(() => {
-        fetch(url)
+        fetch(url, { credentials: "include" })
             .then(res => res.json())
             .then(data => setFoods(data))
 
@@ -56,7 +56,7 @@ const MyFoodRequest = () => {
 
     return (
         <div>
-            <h2 className="text-5xl text-center mb-6"><span className="text-blue-700">Your Requested Foods:</span> <span className="font-bold">{ foods.length }</span></h2>
+            <h2 className="text-5xl text-center mb-6"><span className="text-blue-700">Your Requested Foods:</span> <span className="font-bold">{foods.length}</span></h2>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}

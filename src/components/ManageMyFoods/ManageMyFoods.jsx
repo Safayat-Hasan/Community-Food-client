@@ -14,7 +14,7 @@ const ManageMyFoods = () => {
     const url = `https://community-food-server.vercel.app/foods/manage/${user && user.email}`;
 
     useEffect(() => {
-        fetch(url)
+        fetch(url, {credentials: "include"})
             .then(res => res.json())
             .then(data => setFoods(data))
 

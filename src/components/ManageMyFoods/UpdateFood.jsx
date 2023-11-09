@@ -22,7 +22,7 @@ const UpdateFood = () => {
         const updatedFood = { image, food_name, pickup_location, expired_date, additional_notes, quantity, status };
         console.log(updatedFood);
 
-        fetch(`https://community-food-server.vercel.app/foods/${_id}`, {
+        fetch(`https://community-food-server.vercel.app/foods/${_id}`, { credentials: "include" }, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

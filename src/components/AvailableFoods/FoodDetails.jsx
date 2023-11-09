@@ -33,7 +33,7 @@ const FoodDetails = () => {
         console.log(requestedFood);
 
 
-        fetch("https://community-food-server.vercel.app/requestedFoods", {
+        fetch("https://community-food-server.vercel.app/requestedFoods", { credentials: "include" }, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
