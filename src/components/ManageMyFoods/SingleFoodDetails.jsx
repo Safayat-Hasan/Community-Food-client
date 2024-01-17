@@ -10,16 +10,17 @@ const SingleFoodDetails = () => {
     // const { user_email, user_image, user_name, request_timeAndDate, status } = food;
 
     const [foods, setFoods] = useState([food]);
-    // console.log(foods);
+    console.log(foods);
     // console.log(foods[0].user_name);
 
     const handleFoodConfirm = id => {
-        fetch(`https://community-food-server.vercel.app/requestedFoods/${id}`, { credentials: "include" }, {
+        fetch(`https://community-food-server.vercel.app/requestedFoods/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ status: 'delivered' })
+            body: JSON.stringify({ status: 'delivered' }),
+            credentials:"include"
         })
             .then(res => res.json())
             .then(data => {

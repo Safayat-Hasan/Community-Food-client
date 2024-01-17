@@ -11,6 +11,7 @@ const MyFoodRequest = () => {
     const [foods, setFoods] = useState([]);
 
     const url = `https://community-food-server.vercel.app/requestedFoods/manage/${user && user.email}`;
+    console.log(foods);
 
     useEffect(() => {
         fetch(url, { credentials: "include" })
